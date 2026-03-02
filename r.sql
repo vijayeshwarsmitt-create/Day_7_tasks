@@ -35,3 +35,107 @@ Select all Customers who are NOT from the 'UK'.*/
 16)SELECT * FROM Products where CategoryID ='2';
 17)SELECT * FROM Customers WHERE Country IN ('Germany', 'France');
 18)SELECT * FROM Customers where country  <> ('UK');
+
+/*Use LIKE to find all Customers whose names start with 'B'.
+Find all Customers whose names end with the letter 's'.
+Find all Customers whose names contain the string 'on'.
+Use IN to select customers from multiple countries (e.g., 'Germany', 'France', 'UK').
+Use BETWEEN to find products within a specific price range.
+Use NOT BETWEEN to find products outside a specific price range.
+Use the AND operator to combine two conditions.
+Use the OR operator to combine two conditions.
+Use the NOT operator to exclude a condition.
+Use IS NULL to find records with missing values.
+Use IS NOT NULL to find records that have values.
+Use the >= (Greater than or equal to) operator to filter data.
+Use the <> (Not equal) operator to filter data.
+Find all Orders placed between two specific dates.
+Find all Products where the price is > 100 AND CategoryID is 2.
+Find all Customers from 'London' OR 'Paris'.
+Find all Employees who are NOT from the 'USA'.
+Find all Orders shipped after a specific date.
+Find all Products where the price is NOT between 20 and 50.
+Combine LIKE and AND in a single query to filter specific names and locations.*/
+
+SELECT * 
+FROM Customers
+WHERE CustomerName LIKE 'B%';
+
+SELECT * 
+FROM Customers
+WHERE CustomerName LIKE '%s';
+
+SELECT * 
+FROM Customers
+WHERE CustomerName LIKE '%on%';
+
+SELECT * 
+FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+
+SELECT * 
+FROM Products
+WHERE Price BETWEEN 20 AND 50;
+
+SELECT * 
+FROM Products
+WHERE Price NOT BETWEEN 20 AND 50;
+
+SELECT * 
+FROM Customers
+WHERE Country = 'Germany' AND City = 'Berlin';
+
+SELECT * 
+FROM Customers
+WHERE City = 'London' OR City = 'Paris';
+
+SELECT * 
+FROM Customers
+WHERE NOT Country = 'USA';
+
+SELECT * 
+FROM Customers
+WHERE Phone IS NULL;
+
+SELECT * 
+FROM Customers
+WHERE Phone IS NOT NULL;
+
+SELECT * 
+FROM Products
+WHERE Price >= 100;
+
+SELECT * 
+FROM Customers
+WHERE Country <> 'Germany';
+
+SELECT * 
+FROM Orders
+WHERE OrderDate BETWEEN '2024-01-01' AND '2024-12-31';
+
+SELECT * 
+FROM Products
+WHERE Price > 100 AND CategoryID = 2;
+
+SELECT * 
+FROM Customers
+WHERE City = 'London' OR City = 'Paris';
+
+SELECT * 
+FROM Employees
+WHERE Country <> 'USA';
+
+SELECT * 
+FROM Orders
+WHERE ShippedDate > '2024-01-01';
+
+SELECT * 
+FROM Products
+WHERE Price NOT BETWEEN 20 AND 50;
+
+SELECT * 
+FROM Customers
+WHERE CustomerName LIKE 'A%' 
+AND City = 'London';
+
+
